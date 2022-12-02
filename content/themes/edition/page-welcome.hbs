@@ -1,0 +1,32 @@
+{{!< default}}
+
+<main class="site-main">
+
+    <article class="single post no-image">
+
+        <header class="single-header gh-canvas">
+            <h1 class="single-title">Welcome</h1>
+        </header>
+
+        <div class="single-content gh-content gh-canvas">
+            {{#if @member.paid}}
+                <p>Thank you for subscribing! You now have full access to all of our content and are supporting Lotus's mission.</p>
+            {{else}}
+                <p>Thank you for visiting our blog! Premium members get full access to all of our content and are supporting Lotus's mission.</p>
+            {{/if}}
+            <h3 id="discord-roles">Discord Roles</h3>
+            {{#if @member}}
+                <p>Paid subscribers earn a unique role in our Discord server. To redeem your role sign in with Discord below</p>
+                <div>
+                    <a class="gh-btn button-discord" href="https://discord.com/oauth2/authorize?response_type=code&client_id=1025933198368190535&scope=identify&redirect_uri=https%3A%2F%2Flotus-discord-bot.fly.dev%2Fauth%2Fdiscord%2Freturn&state={{@member.uuid}}&prompt=consent" target="_blank" rel="noopener noreferrer" aria-label="Discord" style="color:white;gap:8px;text-decoration:none;">
+                        {{> "icons/discord"}} <div style="height:20px">Sign in with Discord</div>
+                    </a>
+                </div>
+            {{else}}
+                <p>Paid subscribers earn a unique role in our Discord server. Visit this page while logged in to redeem your role</p>
+            {{/if}}
+        </div>
+
+    </article>
+
+</main>
